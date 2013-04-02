@@ -27,7 +27,10 @@ class FilterBolt
   def execute(tuple)
     count_meter.mark
     hsh = tuple['data']
-    unless hsh[:tweet] =~ /washington|ucla|baseketball|dem|gun|congress|obama|policy|president|senate|terrorists|filibuster|rights|state|gop|vote/i
+    filters = ['ucla', 'washington', 'dem', 'gun', 'congress', 'obama', 'policy',
+               'president', 'senate', 'terrorists', 'filibuster', 'rights', 'state',  
+               'gop', 'vote', 'marriage', 'arms', 'fox']
+    unless hsh[:tweet] =~ /#{filters.join('|')}/i
       @collector.emit(Values.new(hsh))
     end
   end
