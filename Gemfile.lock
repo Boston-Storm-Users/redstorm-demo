@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    httparty (0.10.2)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
+    json (1.7.7)
+    json (1.7.7-java)
+    multi_json (1.7.2)
+    multi_xml (0.5.3)
+    rake (10.0.4)
+    redstorm (0.6.4)
+      rake
+    simple-metrics (0.0.11-java)
+    twitter4j4r (0.1.3-java)
+
+PLATFORMS
+  java
+
+DEPENDENCIES
+  httparty
+  json
+  redstorm
+  simple-metrics
+  twitter4j4r (= 0.1.3)

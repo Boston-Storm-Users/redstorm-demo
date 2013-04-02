@@ -1,0 +1,33 @@
+<div id='hashtags'>
+  <div class='bruins'></div>
+  <div class='senators'></div>
+</div>
+<div id='retweets'>
+  <div class='bruins'></div>
+  <div class='senators'></div>
+</div>
+<div id='tweets'></div>
+
+<script src="//localhost:3000/socket.io/socket.io.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+  var socket = io.connect('http://localhost:3000');
+
+  socket.on('hashtags', function (data) {
+    console.log(data);
+    $('#hashtags .bruins').text(data.bruins);
+    $('#hashtags .senators').text(data.senators);
+  });
+
+  socket.on('retweets', function (data) {
+    console.log(data);
+    $('#retweets .bruins').text(data.bruins);
+    $('#retweets .senators').text(data.senators);
+  });
+
+  socket.on('tweets', function (data) {
+    console.log(data);
+    $('#tweets').append(data.tweet);
+  });
+</script>
