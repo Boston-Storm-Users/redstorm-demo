@@ -29,8 +29,8 @@ $(document).ready(function() {
   socket.on('tweets', function (data) {
     console.log(data);
     var tweet = $('<div class="tweet"></div>').text(data.tweet);
-    tweets.push(tweet);
-    $tweets.append(tweet);
+    tweets.unshift(tweet);
+    $tweets.prepend(tweet);
     while(tweets.length > 10)
     {
       tweets.pop().remove();
